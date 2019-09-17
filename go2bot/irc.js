@@ -1,7 +1,7 @@
 const irc = require('irc'),
   readline = require('readline')
 
-const channel = '#peerparty'
+const channel = '#kabkgo2'
 const botname = 'jbgbot'
 
 const rl = readline.createInterface({

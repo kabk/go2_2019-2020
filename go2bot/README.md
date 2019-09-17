@@ -1,5 +1,13 @@
 # go2bot
 
+## Setup
+
+Install necessary packages, irc for example,  with npm.  You only need to do this once.
+
+    $ npm install
+
+## Running the bot
+
 The go2bot project is 2 nodejs scripts designed to be run in a unix pipe scenario.  I have included a runnable bash shell script as a reference.
 
     $ ./bot.sh
