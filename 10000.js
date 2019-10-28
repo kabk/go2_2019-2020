@@ -1,10 +1,8 @@
-const { exec } = require('child_process')
+const { execSync } = require('child_process')
 
-async function run() {
+function run() {
   for(let i = 0; i < 10000; i++) {
-    await exec(`touch output/${i}`, (err, stdout, stderr) => {
-      if (err) return
-    })
+    execSync(`touch output/${i}`)
   }
 }
 
