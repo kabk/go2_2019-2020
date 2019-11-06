@@ -26,5 +26,6 @@ function foo(req, res) {
 }
 
 app.get('/', bar)
+app.get('/foo', foo)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
