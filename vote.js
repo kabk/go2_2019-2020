@@ -1,5 +1,4 @@
 const express = require('express')
-const geoip = require('geoip-lite')
 const app = express()
 const port = 3000
 
