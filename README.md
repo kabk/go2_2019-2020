@@ -2,6 +2,10 @@
 
 These are code examples used during the coding class lead by James Bryan Graves
 
+## content
+
+The markdown content for the website kabk.hacker.coffee.  This content includes references from lectures, assignments, etc..
+
 ## go2bot
 
 This is nodejs IRC bot designed to be run in a UNIX pipe scenario.  Additional README.md in folder.
