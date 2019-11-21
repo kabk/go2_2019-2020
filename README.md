@@ -4,7 +4,7 @@ These are code examples used during the coding class lead by James Bryan Graves
 
 ## content
 
-The markdown content for the website kabk.hacker.coffee.  This content includes references from lectures, assignments, etc..
+The markdown content for the website [kabk.hacker.coffee](kabk.hacker.coffee).  This content includes references from lectures, assignments, etc..
 
 ## go2bot
 
