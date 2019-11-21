@@ -14,3 +14,7 @@ This is an example of how to create 10000 (not so unique 😁) files with nodejs
 
 `index.js` file from the `/myapp` nodejs server example used in class.  A take on the bare minimum expressjs "Hello world" example, this also includes an example of a link to another path `/` -> `/foo`, and demonstrates how one could, if desired, include a `10000.js` into a server context.
 
+## vote.js
+
+This is an example of a node js express server which tracks votes for a new "bee hive location" in the KABK.
+
