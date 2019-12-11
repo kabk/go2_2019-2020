@@ -43,7 +43,7 @@ Delete it...
 ## Slowly increase margin
 
     const m = 0
-    setInterval(() => document.querySelector('body').style.marginTop = `${m++}px`)
+    setInterval(() => document.querySelector('body').style.marginTop = `${m++}px`, 100)
 
 ## Toggling, flashing on/off
 
