@@ -10,10 +10,15 @@ Here the class name is `className`, HTML will look like: `<img class="className"
 
     imgs.forEach(n => n.style.width = '50px')
 
+## Change the text of something
+
+    const n = document.querySelector('.className')
+    n.innerHTML = 'Foobar'
+
 ## Randomly position an element
 
     document.querySelector('.className').style.position = 'absolute'
-    document.querySelector('.className').style.left = Math.random(0 * window.innerWidth 
+    document.querySelector('.className').style.left = Math.random() * window.innerWidth 
     document.querySelector('.className').style.top = Math.random() * window.innerHeight 
 
 ## Hide something 
