@@ -35,10 +35,31 @@ Delete it...
 
     document.querySelector('.className').remove()
 
+## Rotation
 
-    
+    const r = 0
+    const i = setInterval(() => Array.from(document.querySelectorAll(".className")).forEach(n => n.style.transform = `rotate(${r++}deg)`), 100)
 
-    
+## Toggling
 
+    const i = 0
+    setInterval(() => {
+      const 
+    }, 1000)
+ 
 
+## Query selecting EVERYTHING and changing the background...
+
+    let r = 0
+    let g = 0
+    let b = 0
+    setInterval(() => {
+      const all = document.querySelectorAll('*')
+      r++
+      b++
+      g++
+      all.forEach(n => {
+        n.style.background = `rgba(${r}, ${g}, ${b}, 1)`
+      })
+    }, 100)
 
