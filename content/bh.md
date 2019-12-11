@@ -70,3 +70,11 @@ Delete it...
       })
     }, 100)
 
+## Key press
+
+    document.addEventListener('keydown', (e) => {
+      e.preventDefault()
+      if(e.keyCode === 87) note(200)
+      else if(e.keyCode === 78) note(300)
+    })
+
