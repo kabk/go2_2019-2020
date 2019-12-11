@@ -40,11 +40,18 @@ Delete it...
     const r = 0
     const i = setInterval(() => Array.from(document.querySelectorAll(".className")).forEach(n => n.style.transform = `rotate(${r++}deg)`), 100)
 
-## Toggling
+## Slowly increase margin
+
+    const m = 0
+    setInterval(() => document.querySelector('body').style.marginTop = `${m++}px`)
+
+## Toggling, flashing on/off
 
     const i = 0
     setInterval(() => {
-      const 
+      const m = i++ % 2
+      if(m) n.style.display = 'none'
+      else n.style.display = 'block'
     }, 1000)
  
 
