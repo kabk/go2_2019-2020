@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<style>
+
+/* Page */
+* {
+  margin: 0;
+}
+
+section {
+  height: 377px;
+}
+
+pre {
+  padding: 21px;
+}
+
+.col {
+  float: left;
+  width: 50%;
+  height: 100%;
+  overflow: scroll;
+}
+
+.red {
+  background: #f00;
+}
+
+.green {
+  background: #0f0;
+}
+
+.blue {
+  background: #00f;
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+/* Example 1 - JBG */
+
+.ex1 .container {
+  position: relative;
+  height: 100%;
+}
+
+.ex1 img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateY(21deg) rotateX(34deg);
+  box-shadow: 8px 13px rgba(0, 0, 0, .5);
+}
+
+/* Example 2 - JBG */
+
+.ex2 .container {
+  position: relative;
+  height: 100%;
+}
+
+.ex2 .thing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 89px;
+  width: 89px;
+  transform: translate(-50%, -50%);
+
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    } to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Example 3 - JBG */
+
+.ex3 dt {
+  position: sticky;
+  top: -1px; 
+}
+
+.ex3 dd {
+  height: 610px;
+}
+
+</style>
+</head>
+<body>
+  <main>
+
+    <!-- Example 1 -->
+    <section class="cf ex1">
+      <div class="col red">
+
+        <h1>HTML</h1>
+        <pre>
+          <code class="html">
+&lt;div class="container"&gt;
+  &lt;img src="Lenna.png"&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+
+        <h1>CSS</h1>
+        <pre>
+          <code class="css">
+.ex1 .container {
+  position: relative;
+  height: 100%;
+}
+
+.ex1 img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateY(21deg) rotateX(34deg);
+  box-shadow: 8px 13px rgba(0, 0, 0, .5);
+}
+          </code>
+        </pre>
+      </div>
+      <div class="col blue">
+        <div class="container">
+          <img src="Lenna.png">
+        </div>
+      </div>
+    </section>
+
+    <!-- Example 2 -->
+    <section class="cf ex2">
+      <div class="col red">
+
+        <h1>HTML</h1>
+        <pre>
+          <code class="html">
+&lt;div class="container"&gt;
+  &lt;div class="green thing"&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+
+        <h1>CSS</h1>
+        <pre>
+          <code class="css">
+.ex2 .container {
+  position: relative;
+  height: 100%;
+}
+
+.ex2 .thing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 89px;
+  width: 89px;
+  transform: translate(-50%, -50%);
+
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    } to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+          </code>
+        </pre>
+      </div>
+      <div class="col blue">
+        <div class="container">
+          <div class="green thing">
+        </div>
+      </div>
+    </section>
+
+    <!-- Example 3 -->
+    <section class="cf ex3">
+      <div class="col red">
+
+        <h1>HTML</h1>
+        <pre>
+          <code class="html">
+&lt;dl&gt;
+  &lt;div&gt;
+    &lt;dt&gt;Sticky 1&lt;/dt&gt;
+    &lt;dd&gt;Not sticky&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;dt&gt;Sticky 2&lt;/dt&gt;
+    &lt;dd&gt;Not sticky&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;dt&gt;Sticky 3&lt;/dt&gt;
+    &lt;dd&gt;Not sticky&lt;/dd&gt;
+  &lt;/div&gt;
+&lt;dl&gt;
+          </code>
+        </pre>
+
+        <h1>CSS</h1>
+        <pre>
+          <code class="css">
+.ex3 dt {
+  position: sticky;
+  top: -1px; 
+}
+
+.ex3 dd {
+  height: 610px;
+}
+          </code>
+        </pre>
+      </div>
+      <div class="col blue">
+        <dl>
+          <div>
+            <dt>Sticky 1</dt>
+            <dd>Not sticky</dd>
+          </div>
+          <div>
+            <dt>Sticky 2</dt>
+            <dd>Not sticky</dd>
+          </div>
+          <div>
+            <dt>Sticky 3</dt>
+            <dd>Not sticky</dd>
+          </div>
+        <dl>
+      </div>
+    </section>
+  </main>
+
+  <template id="ex">
+
+    <!-- Example -->
+    <section class="cf exN">
+      <div class="col red">
+
+        <h1>HTML</h1>
+        <pre>
+          <code class="html">
+            <!-- Paste some html here -->
+          </code>
+        </pre>
+
+        <h1>CSS</h1>
+        <pre>
+          <code class="css">
+            <!-- Paste some css here -->
+          </code>
+        </pre>
+      </div>
+      <div class="col blue">
+      </div>
+    </section>
+
+  </template>
+
+  <script>
+
+    // Page - JBG
+    window.addEventListener('DOMContentLoaded', (e) => {
+      //example2()
+    })
+
+  </script>
+</body>
+</html>
