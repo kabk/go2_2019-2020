@@ -1,4 +1,6 @@
-# Helpful browser hacks
+# Browser Hacks
+
+Code developed for the "Live Hacks" workshop at Aalto University (December 2019)
 
 ## Select all elements with css class into a variable
 
@@ -37,17 +39,17 @@ Delete it...
 
 ## Rotation
 
-    const r = 0
-    const i = setInterval(() => Array.from(document.querySelectorAll(".className")).forEach(n => n.style.transform = `rotate(${r++}deg)`), 100)
+    let r = 0
+    let i = setInterval(() => Array.from(document.querySelectorAll(".className")).forEach(n => n.style.transform = `rotate(${r++}deg)`), 100)
 
 ## Slowly increase margin
 
-    const m = 0
+    let m = 0
     setInterval(() => document.querySelector('body').style.marginTop = `${m++}px`, 100)
 
 ## Toggling, flashing on/off
 
-    const i = 0
+    let i = 0
     setInterval(() => {
       const m = i++ % 2
       if(m) n.style.display = 'none'
@@ -81,7 +83,7 @@ Delete it...
 
 Will need an audio context
 
-    let ac = new AudioContect()
+    let ac = new AudioContext()
 
 ### Play a note at a certain fequency
 
@@ -161,5 +163,17 @@ Will need an audio context
       o1.connect(g).connect(ac.destination)
       o1.start()
     }
+
+### Speak text
+
+    const speakText = (txt) => {
+      const msg = new SpeechSynthesisUtterance(txt)
+      window.speechSynthesis.speak(msg)
+    }
+
+## Link/Resources
+
+* [Audio, MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Advanced_techniques)
+* [CSS Selectors, W3C](https://www.w3.org/TR/selectors-api/)
 
 
