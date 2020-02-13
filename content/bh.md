@@ -6,7 +6,7 @@ Code developed for the "Live Hacks" workshop at Aalto University (December 2019)
 
 Here the class name is `className`, HTML will look like: `<img class="className"...`
 
-    const imgs = document.querySelectorAll('.className')
+    imgs = document.querySelectorAll('.className')
 
 ## Loop through those element nodes, and set the width (for example)
 
@@ -14,7 +14,7 @@ Here the class name is `className`, HTML will look like: `<img class="className"
 
 ## Change the text of something
 
-    const n = document.querySelector('.className')
+    n = document.querySelector('.className')
     n.innerHTML = 'Foobar'
 
 ## Randomly position an element
@@ -39,29 +39,28 @@ Delete it...
 
 ## Rotation
 
-    let r = 0
-    let i = setInterval(() => Array.from(document.querySelectorAll(".className")).forEach(n => n.style.transform = `rotate(${r++}deg)`), 100)
+    r = 0
+    i = setInterval(() => Array.from(document.querySelectorAll(".className")).forEach(n => n.style.transform = `rotate(${r++}deg)`), 100)
 
 ## Slowly increase margin
 
-    let m = 0
+    m = 0
     setInterval(() => document.querySelector('body').style.marginTop = `${m++}px`, 100)
 
 ## Toggling, flashing on/off
 
-    let i = 0
+    i = 0
     setInterval(() => {
-      const m = i++ % 2
-      if(m) n.style.display = 'none'
+      if(i++ % 2) n.style.display = 'none'
       else n.style.display = 'block'
     }, 1000)
  
 
 ## Query selecting EVERYTHING and changing the background...
 
-    let r = 0
-    let g = 0
-    let b = 0
+    r = 0
+    g = 0
+    b = 0
     setInterval(() => {
       const all = document.querySelectorAll('*')
       r++
@@ -83,11 +82,11 @@ Delete it...
 
 Will need an audio context
 
-    let ac = new AudioContext()
+    ac = new AudioContext()
 
 ### Play a note at a certain fequency
 
-    let note = (f) => {
+    note = (f) => {
       o1 = ac.createOscillator()
       o1.type = 'sine'
       o1.frequency.value = f
@@ -101,7 +100,7 @@ Will need an audio context
 
 ### LFO
 
-    let lfo = () => {
+    lfo = () => {
       let osc = ac.createOscillator()
       osc.type = 'sine'
       osc.frequency.value = 30
@@ -121,7 +120,7 @@ Will need an audio context
 
 ### Play noise
 
-    let playNoise = (noiseDuration, bandHz) => {
+    playNoise = (noiseDuration, bandHz) => {
       const bufferSize = ac.sampleRate * noiseDuration 
       const buffer = ac.createBuffer(1, bufferSize, ac.sampleRate)
       let data = buffer.getChannelData(0)
@@ -147,7 +146,7 @@ Will need an audio context
 
 ### Random notes in sequence
 
-    let play = () => {
+    play = () => {
       o1 = ac.createOscillator()
       o1.type = 'sine'
       o1.frequency.value = 100
@@ -166,10 +165,15 @@ Will need an audio context
 
 ### Speak text
 
-    const speakText = (txt) => {
-      const msg = new SpeechSynthesisUtterance(txt)
+    msg = new SpeechSynthesisUtterance(txt)
+    speakText = (txt) => {
       window.speechSynthesis.speak(msg)
     }
+
+### Play mp3
+
+    audio = new Audio('http://winwin.zone/fg.mpeg')
+    audio.play()
 
 ## Link/Resources
 
