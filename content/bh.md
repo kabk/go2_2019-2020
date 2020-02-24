@@ -78,3 +78,14 @@ Delete it...
       else if(e.keyCode === 78) note(300)
     })
 
+## Adding an image to the page and moving it around
+
+    let img = document.createElement("img")
+    document.body.appendChild(img)
+    img.src = "https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Lenna_%28test_image%29.png/220px-Lenna_%28test_image%29.png"
+    img.style.position = 'fixed'
+    setInterval(() => {
+      img.style.left = Math.random() * window.innerWidth + 'px'
+      img.style.top = Math.random() * window.innerHeight + 'px'
+    }, 1000)
+
