@@ -1,6 +1,6 @@
 # Web Based Process Log
 
-A simple static HTML/CSS/Javascript website.  Content will be a process log aggregated over the course of the semester.
+A simple static HTML/CSS/Javascript website.  Content will be a digital process book aggregated over the course of the semester.
 
 Assignment should be executed in steps:
 
@@ -11,6 +11,8 @@ Assignment should be executed in steps:
 3. Add interaction and UX with Javascript.
 
 4. Continually add content as a digital process book over the semester.
+
+5. Please have at a minimum of 10 represented concepts.  Have a lok at the example process book in the process-book folder/directory.
 
 ## Timeline
 

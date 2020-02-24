@@ -1,0 +1,121 @@
+<html>
+  <body>
+<script>
+
+const ac = new AudioContext()
+const o1 = ac.createOscillator()
+const g = ac.createGain()
+o1.connect(g).connect(ac.destination)
+
+const o2 = ac.createOscillator()
+const g2 = ac.createGain()
+o2.connect(g2).connect(ac.destination)
+
+const o3 = ac.createOscillator()
+const g3 = ac.createGain()
+o3.connect(g3).connect(ac.destination)
+
+const notePos = (b, l, i) => {
+  console.log(b * bl + (bl / l * i))
+  return b * bl + (bl / l * i)
+}
+
+const note = (f, t) => {
+  console.log(f, t)
+  o1.type = 'sine'
+  o1.frequency.setValueAtTime(f, ac.currentTime + t)
+  g.gain.linearRampToValueAtTime(.25, ac.currentTime + t + 0.2)
+  g.gain.linearRampToValueAtTime(0, ac.currentTime + t + 0.5)
+}
+
+const bass = (f, bar) => {
+  const t = notePos(bar, 1, 0)
+  o2.type = 'sawtooth'
+  o2.frequency.setValueAtTime(f, ac.currentTime + t)
+  g2.gain.linearRampToValueAtTime(.15, ac.currentTime + t + 0.1)
+  g2.gain.linearRampToValueAtTime(0, ac.currentTime + t + 1)
+}
+
+const lead = (f, t) => {
+  o3.type = 'square'
+  o3.frequency.setValueAtTime(f, ac.currentTime + t)
+  g3.gain.linearRampToValueAtTime(.05, ac.currentTime + t + 0)
+  g3.gain.linearRampToValueAtTime(0, ac.currentTime + t + 1)
+}
+
+g.gain.setValueAtTime(0, ac.currentTime)
+g2.gain.setValueAtTime(0, ac.currentTime)
+g3.gain.setValueAtTime(0, ac.currentTime)
+
+o2.frequency.setValueAtTime(0, 0)
+o3.frequency.setValueAtTime(0, 0)
+o1.start()
+o2.start()
+o3.start()
+
+let bl = .63 
+
+const i = (b) => {
+  const m = [146.83, 174.61, 220.00]
+  m.forEach((f, i) => note(f, notePos(b, m.length, i)))
+}
+
+const V = (b) => {
+  const m = [146.83, 164.81, 220.00]
+  m.forEach((f, i) => note(f, notePos(b, m.length, i)))
+}
+
+const VI = (b) => {
+  const m = [130.81, 174.61, 220.00]
+  m.forEach((f, i) => note(f, notePos(b, m.length, i)))
+}
+
+/*
+const VI = () => {
+  const m = [146.83, 116.54 , 233.08]
+  m.forEach(n => note(n, t+=130/60/10))
+}
+*/
+
+const melody = (b) => {
+  const m = [
+    587.33,
+    587.33,
+    659.25,
+    698.46,
+    698.46, 
+    698.46,
+    698.46,
+    587.33,
+    587.33,
+  ]
+  m.forEach((n, i) => lead(n, notePos(b, m.length, i)))
+}
+
+const start = () => {
+  for(let bar = 1; bar < 100; bar++) {
+    switch(bar % 4) {
+      case 3:
+        V(bar)
+        if(bar > 25) bass(55.00, bar)
+        if(bar > 75) melody(bar)
+        break
+      case 2:
+        i(bar)
+        if(bar > 25) bass(58.27, bar)
+        break
+      case 1:
+        VI(bar)
+        if(bar > 25) bass(65.41, bar)
+        break
+      default:
+        i(bar)
+        if(bar > 25) bass(73.42, bar)
+        break
+    }
+  }
+}
+
+</script>
+  </body>
+</html>
