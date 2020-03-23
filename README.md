@@ -22,8 +22,14 @@ This is an example of how to create 10000 (not so unique 😁) files with nodejs
 
 This is an example of a node js express server which tracks votes for a new "bee hive location" in the KABK.
 
-## Making an edit ---
+# How to push to git(hub) 
 
-Hello world ... is a progam by Dennis Riche
+3 steps ...
 
- Another change ...
+* Make a change to a file (use your favorite editor: Sublime, Brackets, Atom, etc.)
+
+* `$ git commit -am "woohoo i made change"`
+
+* `$ git push`
+
+
