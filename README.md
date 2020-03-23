@@ -40,6 +40,21 @@ This is an example of a node js express server which tracks votes for a new "bee
 
 ... my user is `jbg` ... so replace that with your own user.
 
+* Create a file, however your like in your repository folder.  I created one called `blah.html`
+
+* Add the file with git, `*` adds all new files.
+
+`$ git add *`
+
+* Do a commit.
+
+`$ git commit -am "i added a file"
+
+* Do a push.
+
+`$ git push`
+
+
 
 # Resetting your password on 80.100.106.160
 
