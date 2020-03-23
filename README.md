@@ -48,7 +48,7 @@ This is an example of a node js express server which tracks votes for a new "bee
 
 * Do a commit.
 
-`$ git commit -am "i added a file"
+`$ git commit -am "i added a file"`
 
 * Do a push.
 
