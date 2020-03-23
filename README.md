@@ -22,55 +22,25 @@ This is an example of how to create 10000 (not so unique 😁) files with nodejs
 
 This is an example of a node js express server which tracks votes for a new "bee hive location" in the KABK.
 
-# How to push to git(hub) 
-
-3 steps ...
-
-* Make a change to a file (use your favorite editor: Sublime, Brackets, Atom, etc.)
-
-* `$ git commit -am "woohoo i made change"`
-
-* `$ git push`
-
 # Working w/ 80.100.106.160
 
 * Clone your repo
 
 `$ git clone ssh://jbg@80.100.106.160/home/jbg/archive.git`
 
-... my user is `jbg` ... so replace that with your own user.
+... my user is `jbg` ... *so replace that with your own user*.
 
-* Create a file, however your like in your repository folder.  I created one called `blah.html`
+* Create a file, however your like in your repository folder (use your favorite editor: Atom, Brackets, Sublime, etc.).
 
 * Add the file with git, `*` adds all new files.
 
 `$ git add *`
 
-* Do a commit.
+* Do a commit with a nice message `-am`, `a` is add, `m` message.
 
 `$ git commit -am "i added a file"`
 
 * Do a push.
 
 `$ git push`
-
-
-
-# Resetting your password on 80.100.106.160
-
-* `$ ssh jbg@80.100.106.160`
-
-... FOR REAL jbg, DON'T replace you username
-
-* $ `sudo passwd <USERNAME>`
-
-... The user name for 80.100.106.160
-
-* Set a password ...
-
-* `$ exit`
-
-
-
-
 
