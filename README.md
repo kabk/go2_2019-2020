@@ -32,4 +32,14 @@ This is an example of a node js express server which tracks votes for a new "bee
 
 * `$ git push`
 
+# Working w/ 80.100.106.160
+
+* Clone your repo
+
+`$ git clone ssh://jbg@80.100.106.160/home/jbg/archive.git`
+
+... my user is `jbg` ... so replace that with your own user.
+
+
+
 
