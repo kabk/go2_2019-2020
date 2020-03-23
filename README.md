@@ -41,5 +41,21 @@ This is an example of a node js express server which tracks votes for a new "bee
 ... my user is `jbg` ... so replace that with your own user.
 
 
+# Resetting your password on 80.100.106.160
+
+* `$ ssh jbg@80.100.106.160`
+
+... FOR REAL jbg, DON'T replace you username
+
+* $ `sudo passwd <USERNAME>`
+
+... The user name for 80.100.106.160
+
+* Set a password ...
+
+* `$ exit`
+
+
+
 
 
