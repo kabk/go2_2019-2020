@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KZG2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+<style>
+
+* {
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+h1 {
+  width: 100%;
+  font-family: sans-serif;
+  text-align: center;
+  position: absolute;
+  color: #f0f;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-shadow: 0px 0px 21px yellow; 
+  font-size: 83px;
+}
+
+</style>
+</head>
+
+<body>
+<h1>KORTE ZOUTKEETSGRACHT</h1>
+<script type="module">
+  import * as THREE from './three.module.js'
+
+  import { MTLLoader } from './MTLLoader.js'
+  import { OBJLoader } from './OBJLoader.js'
+
+  let container, camera, scene, renderer
+
+  let mouseX = 0, mouseY = 0
+
+  let windowHalfX = window.innerWidth / 2
+  let windowHalfY = window.innerHeight / 2
+
+  init()
+  animate()
+
+  function init() {
+    container = document.createElement('div')
+    document.body.appendChild(container)
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000)
+    camera.position.x = 1.5
+    camera.position.y = -1.5
+    camera.position.z = 0
+
+    // scene
+    scene = new THREE.Scene()
+
+    const ambientLight = new THREE.AmbientLight(0xcccccc, 0.4)
+    scene.add(ambientLight)
+
+    const pointLight = new THREE.PointLight(0xffffff, 0.8)
+    camera.add(pointLight)
+    scene.add(camera)
+
+    // model
+    let onProgress = function (xhr) {
+      if (xhr.lengthComputable) {
+        let percentComplete = xhr.loaded / xhr.total * 100
+        console.log( Math.round( percentComplete, 2 ) + '% downloaded' )
+      }
+    }
+
+    let onError = function () { }
+
+    let manager = new THREE.LoadingManager()
+    new MTLLoader(manager)
+      .setPath( './output/' )
+      .load( 'texturedMesh.mtl', materials => {
+        materials.preload()
+        new OBJLoader( manager )
+          .setMaterials( materials )
+          .setPath( './output/' )
+          .load('texturedMesh.obj', obj => {
+            scene.add(obj)
+          }, onProgress, onError )
+      })
+
+    renderer = new THREE.WebGLRenderer()
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    container.appendChild(renderer.domElement)
+
+    document.addEventListener('mousemove', onDocumentMouseMove, false)
+    window.addEventListener('resize', onWindowResize, false)
+
+  }
+
+  function onWindowResize() {
+    windowHalfX = window.innerWidth / 2
+    windowHalfY = window.innerHeight / 2
+
+    camera.aspect = window.innerWidth / window.innerHeight
+    camera.updateProjectionMatrix()
+
+    renderer.setSize( window.innerWidth, window.innerHeight )
+  }
+
+  function onDocumentMouseMove(event) {
+    mouseX = (event.clientX - windowHalfX) / 2
+    mouseY = (event.clientY - windowHalfY) / 2
+  }
+
+ function animate() {
+    requestAnimationFrame(animate)
+    render()
+  }
+
+  function render() {
+    console.log(camera.position.x, camera.position.y, camera.position.z)
+    camera.position.x += (mouseX - camera.position.x) * .0001
+    camera.position.y += (-mouseY - camera.position.y) * .0001
+    camera.lookAt(scene.position)
+    renderer.render(scene, camera)
+  }
+
+</script>
+</body>
+</html>
+
