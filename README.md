@@ -44,3 +44,11 @@ This is an example of a node js express server which tracks votes for a new "bee
 
 `$ git push`
 
+# Starting a python http/web server in a folder
+
+`$ cd <NAME OF FOLDER/DIRECTORY (or just drag the folder into the Terminal)`
+
+`$ python3 -m http.server 8000`
+
+
+
