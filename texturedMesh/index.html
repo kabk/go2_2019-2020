@@ -80,12 +80,12 @@ h1 {
 
     let manager = new THREE.LoadingManager()
     new MTLLoader(manager)
-      .setPath( './output/' )
+      .setPath( './sapiens/' )
       .load( 'texturedMesh.mtl', materials => {
         materials.preload()
         new OBJLoader( manager )
           .setMaterials( materials )
-          .setPath( './output/' )
+          .setPath( './sapiens/' )
           .load('texturedMesh.obj', obj => {
             scene.add(obj)
           }, onProgress, onError )

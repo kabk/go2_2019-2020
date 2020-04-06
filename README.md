@@ -50,7 +50,7 @@ This is an example of a node js express server which tracks votes for a new "bee
 
 `$ python3 -m http.server 8000`
 
-Go here with the browser: [http://localhost:8000](http://localhost:800)
+Go here with the browser: [http://localhost:8000](http://localhost:8000)
 
 
 
