@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<style>
+
+html, body {
+  margin: 0;
+  height: 100vh;
+  width: 100vh;
+}
+
+h1 {
+  width: 100%;
+  font-family: sans-serif;
+  text-align: center;
+  position: absolute;
+  color: #f0f;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-shadow: 0px 0px 21px yellow;
+  font-size: 55px;
+}
+
+.box {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  background: #000;
+}
+
+</style>
+</head>
+<body>
+<h1></h1>
+<script>
+
+  const ac = new AudioContext()
+
+  function initNote() {
+    o1 = ac.createOscillator()
+    o1.type = 'sine'
+    o1.frequency.value = Math.random() * 400 + 200;
+    g = ac.createGain()
+    o1.connect(g).connect(ac.destination)
+    g.gain.setValueAtTime(0, ac.currentTime)
+    o1.start()
+  }
+
+  function note(f) {
+    o1.frequency.value = f;
+    g.gain.setValueAtTime(0, ac.currentTime)
+    g.gain.linearRampToValueAtTime(0.5, ac.currentTime + 0.1)
+    g.gain.linearRampToValueAtTime(0, ac.currentTime + 0.2)
+  }
+
+  const data = [ 
+    {time: 0.0, state: 1, label: 'KABK', date: 'Wed 01 Apr 2020 09:00:08 AM CEST'},
+    {time: 13.789, state: 0, label: 'KABK', date: 'Wed 01 Apr 2020 12:49:57 PM CEST'},
+    {time: 13.798, state: 1, label: 'HZ', date: 'Wed 01 Apr 2020 12:50:06 PM CEST'},
+    {time: 31.798, state: 0, label: 'HZ', date: 'Wed 01 Apr 2020 05:50:06 PM CEST'},
+    {time: 82.099, state: 1, label: 'HZ', date: 'Thu 02 Apr 2020 07:48:27 AM CEST'},
+    {time: 90.03, state: 0, label: 'HZ', date: 'Thu 02 Apr 2020 10:00:38 AM CEST'},
+    {time: 90.041, state: 1, label: 'PP', date: 'Thu 02 Apr 2020 10:00:49 AM CEST'},
+    {time: 92.93, state: 0, label: 'PP', date: 'Thu 02 Apr 2020 10:48:58 AM CEST'},
+    {time: 92.96, state: 1, label: 'HZ', date: 'Thu 02 Apr 2020 10:49:28 AM CEST'},
+    {time: 114.079, state: 0, label: 'HZ', date: 'Thu 02 Apr 2020 04:41:27 PM CEST'},
+    {time: 118.602, state: 1, label: 'HZ', date: 'Thu 02 Apr 2020 05:56:50 PM CEST'},
+    {time: 129.402, state: 0, label: 'HZ', date: 'Thu 02 Apr 2020 08:56:50 PM CEST'},
+    {time: 170.84, state: 1, label: 'HZ', date: 'Fri 03 Apr 2020 08:27:28 AM CEST'},
+    {time: 180.011, state: 0, label: 'HZ', date: 'Fri 03 Apr 2020 11:00:19 AM CEST'},
+    {time: 180.025, state: 1, label: 'Ourspace', date: 'Fri 03 Apr 2020 11:00:33 AM CEST'},
+    {time: 184.654, state: 0, label: 'Ourspace', date: 'Fri 03 Apr 2020 12:17:42 PM CEST'},
+    {time: 184.69, state: 1, label: 'HZ', date: 'Fri 03 Apr 2020 12:18:18 PM CEST'},
+    {time: 198.07, state: 0, label: 'HZ', date: 'Fri 03 Apr 2020 04:01:18 PM CEST'},
+    {time: 430.564, state: 1, label: 'KABK', date: 'Mon 06 Apr 2020 08:36:12 AM CEST'},
+    {time: 459.363, state: 0, label: 'KABK', date: 'Mon 06 Apr 2020 04:36:11 PM CEST'},
+    {time: 459.371, state: 1, label: 'HZ', date: 'Mon 06 Apr 2020 04:36:19 PM CEST'},
+    {time: 461.379, state: 0, label: 'HZ', date: 'Mon 06 Apr 2020 05:09:47 PM CEST'},
+    {time: 510.934, state: 1, label: 'HZ', date: 'Tue 07 Apr 2020 06:55:42 AM CEST'},
+    {time: 512.479, state: 0, label: 'HZ', date: 'Tue 07 Apr 2020 07:21:27 AM CEST'},
+    {time: 517.773, state: 1, label: 'HZ', date: 'Tue 07 Apr 2020 08:49:41 AM CEST'},
+    {time: 534.878, state: 0, label: 'HZ', date: 'Tue 07 Apr 2020 01:34:46 PM CEST'},
+    {time: 534.899, state: 1, label: 'DAE', date: 'Tue 07 Apr 2020 01:35:07 PM CEST'},
+    {time: 541.763, state: 0, label: 'DAE', date: 'Tue 07 Apr 2020 03:29:31 PM CEST'},
+    {time: 541.772, state: 1, label: 'HZ', date: 'Tue 07 Apr 2020 03:29:40 PM CEST'},
+    {time: 552.633, state: 0, label: 'HZ', date: 'Tue 07 Apr 2020 06:30:41 PM CEST'},
+    {time: 604.688, state: 1, label: 'HZ', date: 'Wed 08 Apr 2020 08:58:16 AM CEST'},
+    {time: 636.091, state: 0, label: 'HZ', date: 'Wed 08 Apr 2020 05:41:39 PM CEST'},
+    {time: 638.513, state: 1, label: 'PP', date: 'Wed 08 Apr 2020 06:22:01 PM CEST'},
+    {time: 651.593, state: 0, label: 'PP', date: 'Wed 08 Apr 2020 10:00:01 PM CEST'},
+    {time: 689.6, state: 1, label: 'PP', date: 'Thu 09 Apr 2020 08:33:28 AM CEST'},
+    {time: 694.82, state: 0, label: 'PP', date: 'Thu 09 Apr 2020 10:00:28 AM CEST'},
+    {time: 695.094, state: 1, label: 'KABK', date: 'Thu 09 Apr 2020 10:05:02 AM CEST'},
+    {time: 698.734, state: 0, label: 'KABK', date: 'Thu 09 Apr 2020 11:05:42 AM CEST'},
+    {time: 698.897, state: 1, label: 'TE', date: 'Thu 09 Apr 2020 11:08:25 AM CEST'},
+    {time: 708.521, state: 0, label: 'TE', date: 'Thu 09 Apr 2020 01:48:49 PM CEST'},
+    {time: 708.531, state: 1, label: 'HZ', date: 'Thu 09 Apr 2020 01:48:59 PM CEST'},
+    {time: 732.651, state: 0, label: 'HZ', date: 'Thu 09 Apr 2020 08:30:59 PM CEST'},
+    {time: 781.22, state: 1, label: 'HZ', date: 'Fri 10 Apr 2020 10:00:28 AM CEST'},
+    {time: 813.618, state: 0, label: 'HZ', date: 'Fri 10 Apr 2020 07:00:26 PM CEST'},
+    {time: 1037.824, state: 1, label: 'HZ', date: 'Mon 13 Apr 2020 09:17:12 AM CEST'},
+    {time: 1068.311, state: 0, label: 'HZ', date: 'Mon 13 Apr 2020 05:45:19 PM CEST'},
+    {time: 1126.065, state: 1, label: 'HZ', date: 'Tue 14 Apr 2020 09:47:53 AM CEST'},
+    {time: 1154.544, state: 0, label: 'HZ', date: 'Tue 14 Apr 2020 05:42:32 PM CEST'},
+    {time: 1155.596, state: 1, label: 'KABK', date: 'Tue 14 Apr 2020 06:00:04 PM CEST'},
+    {time: 1162.904, state: 0, label: 'KABK', date: 'Tue 14 Apr 2020 08:01:52 PM CEST'},
+    {time: 1210.592, state: 1, label: 'HZ', date: 'Wed 15 Apr 2020 09:16:40 AM CEST'},
+    {time: 1212.027, state: 0, label: 'HZ', date: 'Wed 15 Apr 2020 09:40:35 AM CEST'},
+    {time: 1212.036, state: 1, label: 'TE', date: 'Wed 15 Apr 2020 09:40:44 AM CEST'},
+    {time: 1215.007, state: 0, label: 'TE', date: 'Wed 15 Apr 2020 10:30:15 AM CEST'},
+    {time: 1223.814, state: 1, label: 'HZ', date: 'Wed 15 Apr 2020 12:57:02 PM CEST'},
+    {time: 1238.43, state: 0, label: 'HZ', date: 'Wed 15 Apr 2020 05:00:38 PM CEST'},
+    {time: 1297.879, state: 1, label: 'HZ', date: 'Thu 16 Apr 2020 09:31:27 AM CEST'},
+    {time: 1328.419, state: 0, label: 'HZ', date: 'Thu 16 Apr 2020 06:00:27 PM CEST'},
+    {time: 1298.114, state: 1, label: 'HZ', date: 'Thu 16 Apr 2020 09:35:22 AM CEST'},
+    {time: 1318.343, state: 0, label: 'HZ', date: 'Thu 16 Apr 2020 03:12:31 PM CEST'},
+    {time: 1327.383, state: 1, label: 'HZ', date: 'Thu 16 Apr 2020 05:43:11 PM CEST'},
+    {time: 1336.451, state: 0, label: 'HZ', date: 'Thu 16 Apr 2020 08:14:19 PM CEST'},
+    {time: 1384.981, state: 1, label: 'HZ', date: 'Fri 17 Apr 2020 09:43:09 AM CEST'},
+    {time: 1414.544, state: 0, label: 'HZ', date: 'Fri 17 Apr 2020 05:55:52 PM CEST'},
+    {time: 1464.104, state: 1, label: 'PP', date: 'Sat 18 Apr 2020 07:41:52 AM CEST'},
+    {time: 1469.512, state: 0, label: 'PP', date: 'Sat 18 Apr 2020 09:12:00 AM CEST'},
+    {time: 1474.172, state: 1, label: 'PP', date: 'Sat 18 Apr 2020 10:29:40 AM CEST'},
+    {time: 1493.832, state: 0, label: 'PP', date: 'Sat 18 Apr 2020 03:57:20 PM CEST'}
+  ]
+  
+  // Page - JBG
+  window.addEventListener('DOMContentLoaded', (e) => {
+    initNote()
+    data.forEach((o, i) => {
+      if(o.state === 1) {
+        const w = data[i+1].time - o.time
+        const c = document.createElement('div')
+        c.classList.add('box')
+        c.style.left = `${o.time}px`
+        c.style.width = `${w}px`
+        c.addEventListener('mouseover', e => {
+          document.querySelector('h1').innerHTML = `${o.label}:${o.date}`
+          note(o.time)
+        })
+        document.body.appendChild(c)
+      }
+    })
+  })
+
+  
+</script>
+</body>
+</html>
