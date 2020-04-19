@@ -2,9 +2,9 @@
 
 These are code examples used during the coding class lead by James Bryan Graves
 
-## content
+## docs
 
-The markdown content for the website [kabk.hacker.coffee](kabk.hacker.coffee).  This content includes references from lectures, assignments, etc..
+This content includes references from lectures, assignments, etc..
 
 ## go2bot
 
@@ -22,35 +22,11 @@ This is an example of how to create 10000 (not so unique 😁) files with nodejs
 
 This is an example of a node js express server which tracks votes for a new "bee hive location" in the KABK.
 
-# Working w/ 80.100.106.160
+## texturedMesh
 
-* Clone your repo
+Digitization and clouding of the home space. Photogrammetric 3D (html, css, js, three.js) example.
 
-`$ git clone ssh://jbg@80.100.106.160/home/jbg/archive.git`
+## timeline
 
-... my user is `jbg` ... *so replace that with your own user*.
-
-* Create a file, however your like in your repository folder (use your favorite editor: Atom, Brackets, Sublime, etc.).
-
-* Add the file with git, `*` adds all new files.
-
-`$ git add *`
-
-* Do a commit with a nice message `-am`, `a` is add, `m` message.
-
-`$ git commit -am "i added a file"`
-
-* Do a push.
-
-`$ git push`
-
-# Starting a python http/web server in a folder
-
-`$ cd <NAME OF FOLDER/DIRECTORY (or just drag the folder into the Terminal)`
-
-`$ python3 -m http.server 8000`
-
-Go here with the browser: [http://localhost:8000](http://localhost:8000)
-
-
+*Very* simple data visualization of (JBG's project work, April 2020) a timeline with mouse over events.
 
